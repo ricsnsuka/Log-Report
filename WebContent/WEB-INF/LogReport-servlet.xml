@@ -19,7 +19,14 @@
 	
 	<context:component-scan base-package="com.opengi.ecommerce.logreport" />
 	
-	
+	<mvc:resources location="/resources/" mapping="/resources/**" />
+	<mvc:annotation-driven content-negotiation-manager="contentNegotiationManager"/>
+    <task:annotation-driven/>
+	<bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+         <!--Turn off working out content type based on URL file extension, should fall back to looking at the Accept headers--> 
+        <property name="favorPathExtension" value="false" />
+    </bean>
+    
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/" />

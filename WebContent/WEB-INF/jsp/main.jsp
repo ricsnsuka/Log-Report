@@ -2,19 +2,22 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <html>
 	<head>
-		<link href="./static/css/custom.css" rel="stylesheet" type="text/css">
+		<link href="./resources/css/custom.css" rel="stylesheet" type="text/css">
 		<title>Log Report</title>
 	</head>
 	<body>
-		<h2>${message}</h2>
+		<div id="HeaderContent">
+			<div id="Header"></div>
+			<div id="TopNav"></div>
+		</div>
 		<div id="PageContainer">
 			<div id="ContainerWrapper">
-				<div id="Section">
-					<div id="SectionAppHeader">
-						Application
+				<div class="section">
+					<div class="sectionHeader">
+						Coisas
 					</div>
-					<div id="SectionAppContent">
-						
+					<div class="sectionContent">
+						Redondas
 					</div>
 				</div>
 			</div>

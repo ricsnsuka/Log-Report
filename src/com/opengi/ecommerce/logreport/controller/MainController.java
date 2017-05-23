@@ -6,12 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/main")
 public class MainController {
 	
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value="/main", method = RequestMethod.GET)
 	public String displayMainPage(ModelMap model) {
-		model.addAttribute("message", "log report");
+		//model.addAttribute("message", "log report");
 		return "main";
 	}
 }
