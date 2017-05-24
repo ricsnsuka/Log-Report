@@ -1,19 +1,21 @@
 package com.opengi.ecommerce.logreport.bean;
 
-import java.util.List;
+import java.util.Map;
+
+import com.opengi.ecommerce.logreport.domain.Domain;
 
 public class Application {
 	
 	private String applicationName;
 	private String lastReportDate;
-	private List<String> modules;
+	private Map<String, Domain> domainMap;
 
-	public List<String> getModules() {
-		return modules;
+	public Map<String, Domain> getDomainMap() {
+		return domainMap;
 	}
 
-	public void setModules(List<String> modules) {
-		this.modules = modules;
+	public void setModules(Map<String, Domain> domainMap) {
+		this.domainMap = domainMap;
 	}
 
 	public String getLastReportDate() {
