@@ -8,7 +8,6 @@ public class Domain {
 	private String name;
 	private List<LogObject> log;
 	
-	
 	public String getName() {
 		return name;
 	}

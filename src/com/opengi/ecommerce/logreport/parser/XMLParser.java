@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,6 +26,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import com.opengi.ecommerce.logreport.bean.Application;
+import com.opengi.ecommerce.logreport.domain.Domain;
+
 
 public class XMLParser {
 	protected HashMap<String, ArrayList<String>> xmlInformation;
@@ -38,6 +42,33 @@ public class XMLParser {
 		this.filepath = filepath;
 		this.parsedMap = new HashMap<>();
 		loadDocument();
+	}
+	
+	public List<Application> getApplicationValues() {
+		List<Application> applicationList = new ArrayList<>();
+		NodeList nList = document.getElementsByTagName("application");
+		Node node;
+		for(int i = 0; i < nList.getLength(); i++) {
+			node = nList.item(i);
+			NodeList nList2;
+			Application application = new Application();
+			if(node.getNodeType() == Node.ELEMENT_NODE) {
+				application.setApplicationName(node.getNodeName());
+				List<Domain> domainList = new ArrayList<>();
+				nList2 = ((Element) node).getChildNodes();
+				for(int j = 0; j < nList2.getLength(); j++) {
+					if(nList2.item(j).getNodeType() == Node.ELEMENT_NODE) {
+						Domain domain = new Domain();
+						domain.setName(nList2.item(j).getAttributes().getNamedItem("name").getTextContent());
+						domainList.add(domain);
+					}
+				}
+				application.setDomainList(domainList);
+			}
+			applicationList.add(application);
+		}
+		return applicationList;
+		
 	}
 
 	public ArrayList<String> getAttributeValues(String nodeName, String attr) {

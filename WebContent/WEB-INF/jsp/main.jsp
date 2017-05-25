@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <html>
 	<head>
@@ -12,14 +13,18 @@
 		</div>
 		<div id="PageContainer">
 			<div id="ContainerWrapper">
-				<div class="section">
-					<div class="sectionHeader">
-						Coisas
-					</div>
-					<div class="sectionContent">
-						Redondas
-					</div>
-				</div>
+				<c:if test="${not empty applications.domainList }">
+					<c:forEach var="domainList" items="${applications.domainList}" varStatus="loop">
+						<div class="section">
+							<div id="Application_${loop_index}" class="sectionHeader">
+								${domainList.getName}
+							</div>
+							<div class="sectionContent">
+								Redondas
+							</div>
+						</div>
+					</c:forEach>
+				</c:if>
 			</div>
 		</div>
 	</body>

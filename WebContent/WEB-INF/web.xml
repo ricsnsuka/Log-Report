@@ -5,17 +5,23 @@
 
 	<display-name>LogReport</display-name>
 
+
+
 	<servlet>
 		<servlet-name>LogReport</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/applicationContext.xml</param-value>
+		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>LogReport</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>*.htm</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
-        <welcome-file>redirect.jsp</welcome-file>
-    </welcome-file-list>
+		<welcome-file>redirect.jsp</welcome-file>
+	</welcome-file-list>
 
 </web-app>

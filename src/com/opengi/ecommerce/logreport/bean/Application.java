@@ -1,6 +1,6 @@
 package com.opengi.ecommerce.logreport.bean;
 
-import java.util.Map;
+import java.util.List;
 
 import com.opengi.ecommerce.logreport.domain.Domain;
 
@@ -8,14 +8,14 @@ public class Application {
 	
 	private String applicationName;
 	private String lastReportDate;
-	private Map<String, Domain> domainMap;
+	private List<Domain> domainList;
 
-	public Map<String, Domain> getDomainMap() {
-		return domainMap;
+	public List<Domain> getDomainList() {
+		return domainList;
 	}
 
-	public void setModules(Map<String, Domain> domainMap) {
-		this.domainMap = domainMap;
+	public void setDomainList(List <Domain> domainList) {
+		this.domainList = domainList;
 	}
 
 	public String getLastReportDate() {
